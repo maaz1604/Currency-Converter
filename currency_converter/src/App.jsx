@@ -1,7 +1,7 @@
 import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import InputBox  from "./components/Inputbox.jsx";
+import InputBox  from "./components/template.jsx";
 import useCurrencyInfo from "./hooks/useCurrencyinfo.js";
 
 
@@ -13,7 +13,6 @@ function App() {
   const [convertedAmount, setConvertedAmount] = useState(0)
   const currencyInfo = useCurrencyInfo(from)
   const options = Object.keys(currencyInfo)
-
   const swap = () => {
     setFrom(to);
     setTo(from);
@@ -45,8 +44,7 @@ function App() {
                 label="From"
                 amount={amount}
                 currencyOptions={options}
-                // eslint-disable-next-line no-unused-vars
-                onCurrencyChange={(currency)=>setAmount(amount)}
+                onCurrencyChange={(currency) => setFrom(currency)}
                 onAmountChange={(amount) => setAmount(amount)}
                 selectCurrency={from}
               />
